@@ -6,7 +6,7 @@ a simple Python entrypoint demonstration
 
 Everyone's favorite setuptools Entry Point is the handy [console_scripts]. But,
 as it turns out, that is just one usage of this very useful concept. You get
-that *for free*, but if you want to use entry points to make your project more
+that *for free*, but if you want to use [entry points] to make your project more
 magical you are going to have to do a little work. Luckily it's not hard and
 this project aims to demo it so clearly that you can't go wrong.
 
@@ -60,7 +60,7 @@ The Python code we used was the same in both tests, but the results were
 significantly different. Installing the `epd_plugin` package changed the content
 of `epd_main.my_tools` by adding more tools! That's cool. You can design a
 package to be extended by another package. No need to change any code or
-**configuration**. All you do is `pip install` a package.
+**configuration**. All you do is `pip install` a package. That's awesome.
 
 ### Wait!
 
@@ -88,18 +88,18 @@ look behind the curtain.
 ### How it works
 
 Each of the packages define `entry_point` names and a list of key value pairs in
-their setup.py.
+their setup.py. ([epd_main/setup.py], [epd_plugin/setup.py])
 
 Then in the epd_main package I use `pkg_resources` to do something pretty cool
-(I must say). In the `__init__.py` I define `my_tools` as a subclassed object
-and use `setattr()` to attach the functions. The end result is that you can
+([I must say]). In the `__init__.py` I define `my_tools` as a subclassed object
+and use `setattr()` to [attach the functions]. The end result is that you can
 import just that object just as you would a module.
 
 
 
 ### What you should avoid
 
-You may be tempted to try to add functions to the global namespace of a module.
+You may be tempted to try to [add functions to the global namespace] of a module.
 I have included an example of this also, but it breaks [static code analysis]
 and makes you code non-[reentrant]. The are hard Computer Science-y things. I
 prefer to not get into arguments about these things. There are enough geniuses
@@ -119,3 +119,12 @@ telling me not to do it, that I just don't.
   actually putting it into your project.
 
 
+[console_scripts]: http://stackoverflow.com/a/782984/117471
+[entry points]: http://stackoverflow.com/a/9615473/117471
+[I must say]: https://www.youtube.com/watch?v=vAE4AOP6xKs#t=5
+[epd_main/setup.py]: https://github.com/RichardBronosky/entrypoint_demo/blob/master/epd_main/setup.py#L60-L64
+[epd_plugin/setup.py]: https://github.com/RichardBronosky/entrypoint_demo/blob/master/epd_plugin/setup.py#L60-L64
+[attach the functions]: https://github.com/RichardBronosky/entrypoint_demo/blob/master/epd_main/epd_main/__init__.py#L7-L8
+[static code analysis]: http://www.pylint.org/
+[reentrant]: http://www.quora.com/When-is-a-function-reentrant-How-does-that-relate-to-it-being-thread-safe
+[add functions to the global namespace]: https://github.com/RichardBronosky/entrypoint_demo/blob/master/epd_main/epd_main/broken_tools.py#L4-L5
