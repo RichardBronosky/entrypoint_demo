@@ -17,35 +17,42 @@ this project aims to demo it so clearly that you can't go wrong.
  - You can't pip install it from the github URL because it contains 2 different
    Python packages.
 
-` `
-
-        git clone https://github.com/RichardBronosky/entrypoint_demo.git
-        cd entrypoint_demo
-
+```bash
+git clone https://github.com/RichardBronosky/entrypoint_demo.git
+cd entrypoint_demo
+```
 
 * Install the first package.
 
-        pip install ./epd_main
-        # must have the ./ in there to indicate a local path and not pypi
+```bash
+pip install ./epd_main
+# must have the ./ in there to indicate a local path and not pypi
+```
 
 * Check out [the results](https://bpaste.net/show/546872592282)
 
-        from pprint import pprint
-        from epd_main import my_tools
-        pprint(my_tools.__dict__)
-        my_tools.my_pot()
+```python
+from pprint import pprint
+from epd_main import my_tools
+pprint(my_tools.__dict__)
+my_tools.my_pot()
+```
 
 * Install the second package.
 
-        pip install ./epd_plugin
-        # must have the ./ in there to indicate a local path and not pypi
+```bash
+pip install ./epd_plugin
+# must have the ./ in there to indicate a local path and not pypi
+```
 
 * Check out [the results](https://bpaste.net/show/0a0171469249)
 
-        from pprint import pprint
-        from epd_main import my_tools
-        pprint(my_tools.__dict__)
-        my_tools.my_knife()
+```python
+from pprint import pprint
+from epd_main import my_tools
+pprint(my_tools.__dict__)
+my_tools.my_knife()
+```
 
 ### Did you get that?
 
