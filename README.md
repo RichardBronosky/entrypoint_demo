@@ -4,6 +4,8 @@ a simple Python entrypoint demonstration
 
 ----------
 
+![a diff of the results before and after installing the plugin](http://i.imgur.com/m5FqqT3.png)
+
 Everyone's favorite setuptools Entry Point is the handy [console_scripts]. But,
 as it turns out, that is just one usage of this very useful concept. You get
 that *for free*, but if you want to use [entry points] to make your project more
